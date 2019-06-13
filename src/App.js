@@ -12,8 +12,8 @@ const App = (props) => {
   return (
     <div>
       <h1>Carousel</h1>
-      {imgList.length === 0 && <div>Loading...</div>}
-      {imgList.length > 0 &&
+      {outputsList.length === 0 && <div>Loading...</div>}
+      {outputsList.length > 0 &&
         <Carousel outputsList={outputsList} img_width={300} img_height={300}
         visibleImages={3} duration={750}/>
       }
