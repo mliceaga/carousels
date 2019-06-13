@@ -1,19 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from './Carousel';
-import axios from 'axios';
 
-const SPLASHBASE_URL = 'http://www.splashbase.co/api/v1/images/latest';
 
 const App = (props) => {
-  const [imgList, setImgList] = useState([]);
+  const [outputsList, setOutputsList] = useState([]);
 
   useEffect(() => {
-    axios.get(SPLASHBASE_URL)
-    .then((resp) => {
-      setImgList(resp.data.images);
-    }).catch((err) => {
-      console.log('Unable to Fetch Image from splashbase', err);
-    });
+      setOutputsList([{textVar1: 'text 1', textVar2: 'text 2', textVar3: 'text 3'},{textVar1: 'text 2-1', textVar2: 'text 2-2', textVar3: 'text 2-3'}]);
   }, []);
 
   return (
@@ -21,7 +14,7 @@ const App = (props) => {
       <h1>Carousel</h1>
       {imgList.length === 0 && <div>Loading...</div>}
       {imgList.length > 0 &&
-        <Carousel imgList={imgList} img_width={300} img_height={300}
+        <Carousel outputsList={outputsList} img_width={300} img_height={300}
         visibleImages={3} duration={750}/>
       }
     </div>
